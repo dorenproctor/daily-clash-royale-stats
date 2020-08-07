@@ -51,3 +51,4 @@ for card_name in card_names:
 
 with open('card_stats.json', 'w') as f:
     json.dump(all_cards, f)
+    print('updated card_stats.json')

@@ -1,21 +1,23 @@
 on: push
 
 jobs:
-  download-stats:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: "3.8"
+          
+      # install required libraries and run script
       - run: pip install -r requirements.txt
       - run: python fetch_cr_stats.py
-      
-  update-git:
-    needs: download-stats
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+
+      # update README with the last time the script was run
+      - run: sed -i '$ d' README.md
+      - run: echo Last run at `date` >> README.md
+
+      # add changes as a new commit in this repo
       - run: git status
       - run: git config --global user.email "action@github.com"
       - run: git config --global user.name "Doren's GitHub Actions Runner"
