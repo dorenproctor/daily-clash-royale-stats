@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: git status
-      - run: git config --global user.email "dorenproctor@gmail.com"
-      - run: git config --global user.name "Doren's CI/CD Runner"
-      - run: git commit -am "increment to $next"
+      - run: git config --global user.email "action@github.com"
+      - run: git config --global user.name "Doren's GitHub Actions Runner"
+      - run: git commit -am "Updating stats at `date`"
       - run: git push
 
