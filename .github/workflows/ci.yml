@@ -1,0 +1,23 @@
+on: push
+
+jobs:
+  download-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - run: python fetch_cr_stats.py
+      
+  update-git:
+    needs: download-stats
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: git status
+      - run: git config --global user.email "dorenproctor@gmail.com"
+      - run: git config --global user.name "Doren's CI/CD Runner"
+      - run: git commit -am "increment to $next"
+      - run: git push
+
