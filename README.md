@@ -2,4 +2,4 @@ This small project uses a python script to fetch stats about Clash Royale cards 
 
 This script runs daily using GitHub Actions to maintain up-to-date data.
 
-Last run at: Sat Feb 20 00:26:40 UTC 2021
+Last run at: Sun Feb 21 00:28:23 UTC 2021
