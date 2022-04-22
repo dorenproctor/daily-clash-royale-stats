@@ -1,6 +1,6 @@
-on:
-  schedule:
-    - cron: '0 0 * * *' # once a day
+# on:
+#   schedule:
+#     - cron: '0 0 * * *' # once a day
 
 jobs:
   job1:
